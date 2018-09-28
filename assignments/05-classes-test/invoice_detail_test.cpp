@@ -7,6 +7,4 @@ TEST_CASE("Test get_extended_cost")
 	InvoiceDetail ID(10, 10);
 	REQUIRE(ID.get_extended_cost() == 100.00);
 
-	std::cout << " \nPress any key to continue\n";
-	std::cin.ignore();
 }
