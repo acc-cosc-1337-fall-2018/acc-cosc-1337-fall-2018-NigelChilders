@@ -103,12 +103,15 @@ TEST_CASE("Test win by second row", "[X wins]") {
 TEST_CASE("Test win by third row", "[X wins]") {
 	TicTacToeBoard board;
 	board.start_game("X");
-	board.mark_board(8);//X 
+	board.mark_board(7);//X 
 	board.mark_board(2);//O 
-	board.mark_board(9);//X 
+	board.mark_board(8);//X 
 	board.mark_board(5);//O 
 	board.mark_board(9);//X 
 	//X wins 
+	// O 
+	// O 
+	//XXX
 
 	REQUIRE(board.game_over() == true);
 }
