@@ -50,8 +50,8 @@ TEST_CASE("Test for replace vector element") {
 //function argument 3 result should be true
 //function argument 4 result should be false
 TEST_CASE("Test for Get Prime") {
-	REQUIRE(is_prime(3) == TRUE);
-	REQUIRE(is_prime(4) == FALSE);
+	REQUIRE(is_prime(3) == true);
+	REQUIRE(is_prime(4) == false);
 }
 
 
