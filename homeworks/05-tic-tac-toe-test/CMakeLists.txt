@@ -1,0 +1,2 @@
+add_executable(tictactoe_test "tictactoe_test.cpp")
+target_link_libraries(tictactoe_test vectors_library)
