@@ -2,6 +2,7 @@
 #define TIC_TAC_TOE_BOARD_H
 #include <string>
 #include <vector>
+#include <iostream>
 
 using std::vector; using std::string;
 
@@ -20,7 +21,7 @@ private:
 	bool check_diagonal_win();
 	void clear_board();
 	bool check_board_full();
-	vector<string> pegs();
-	string next_player();
+	vector<string> pegs{ 9," " };
+	string next_player;
 };
 #endif //TICTACTOE_H
