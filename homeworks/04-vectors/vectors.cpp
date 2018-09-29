@@ -36,7 +36,7 @@ bool is_prime(int number)
 vector<int> vector_of_primes(int n)
 {
 	vector<int> list{};
-	for (int i = 0; i <= n; ++i) {
+	for (int i = 2; i <= n; ++i) {
 		if (is_prime(i)) {
 			list.push_back(i);
 		}
