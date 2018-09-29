@@ -101,7 +101,7 @@ bool TicTacToeBoard::check_diagonal_win() {
 }
 
 void TicTacToeBoard::clear_board() {
-	pegs = { 0, " " };
+	pegs = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
 }
 
 bool TicTacToeBoard::check_board_full() {
