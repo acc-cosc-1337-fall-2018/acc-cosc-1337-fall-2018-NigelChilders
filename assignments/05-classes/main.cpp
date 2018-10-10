@@ -35,7 +35,7 @@ int main() {
 	Invoice_Utility test(25);
 	test.add_invoice_detail(InvoiceDetail(1, 25));
 	
-	std::cout << "Invoice Utility result:  " << test.get_total << std::endl;
+	std::cout << "Invoice Utility result:  " << test.get_total() << std::endl;
 	
 	std::cout << " \nPress any key to continue\n";
 	std::cin.ignore();

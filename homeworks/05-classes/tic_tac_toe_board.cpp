@@ -125,7 +125,11 @@ bool TicTacToeBoard::check_board_full() {
 }
 
 std::istream & operator>>(std::istream & in, TicTacToeBoard & d) {
-	in >> d.mark_board;
+	int value{ 0 };
+	std::cout << "Player " << d.get_player() << ", choose position between 1 and 9: ";
+	in >> value;
+	d.mark_board(value);
+
 	return in;
 }
 
