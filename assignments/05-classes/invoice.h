@@ -13,6 +13,9 @@ public:
 
 private:
 	vector<InvoiceDetail> invoice_details;
+
+
+protected:
 	double total{ 0 };
 };
 

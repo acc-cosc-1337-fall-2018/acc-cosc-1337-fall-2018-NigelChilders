@@ -1,4 +1,5 @@
 #include "invoice.h"
+#include "invoice_utility.h"
 #include <iostream>
 
 int main() {
@@ -31,6 +32,11 @@ int main() {
 	Invoice result = Inv + Sec;
 	std::cout << result.get_total();
 
+	Invoice_Utility test(25);
+	test.add_invoice_detail(InvoiceDetail(1, 25));
+	
+	std::cout << "Invoice Utility result:  " << test.get_total << std::endl;
+	
 	std::cout << " \nPress any key to continue\n";
 	std::cin.ignore();
 

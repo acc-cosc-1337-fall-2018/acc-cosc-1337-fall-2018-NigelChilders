@@ -2,6 +2,13 @@
 
 bool TicTacToeBoard::game_over() {
 	if (check_row_win() || check_column_win() || check_diagonal_win() || check_board_full()) {
+		if (check_board_full()) {
+			c_win++;
+		}else if (next_player == "X") {
+			x_win++;
+		}else if (next_player == "O") {
+			o_win++;
+		}else std::cout << "Non-Existant Player error (source: Game_Over()";
 		return true;
 	}
 	else { return false; }
@@ -21,7 +28,7 @@ void TicTacToeBoard::mark_board(int position) {
 string TicTacToeBoard::get_player() {
 	return next_player;
 }
-
+/*
 void TicTacToeBoard::display_board() {
 	std::cout << pegs[0] << "|" << pegs[1] << "|" << pegs[2] << std::endl;
 	std::cout << "?+?+?" << std::endl;
@@ -29,7 +36,7 @@ void TicTacToeBoard::display_board() {
 	std::cout << "?+?+?" << std::endl;
 	std::cout << pegs[6] << "|" << pegs[7] << "|" << pegs[8] << std::endl;
 }
-
+*/
 void TicTacToeBoard::set_next_player() {
 	if (next_player == "X") {
 		next_player = "O";
@@ -115,4 +122,29 @@ bool TicTacToeBoard::check_board_full() {
 		return false;
 	}
 	else { return true; }
+}
+
+std::istream & operator>>(std::istream & in, TicTacToeBoard & d) {
+	in >> d.mark_board;
+	return in;
+}
+
+std::ostream & operator<<(std::ostream & out, const TicTacToeBoard & d) {
+	out << "Current Player:  " << d.next_player << std::endl;
+	out << d.pegs[0] << "|" << d.pegs[1] << "|" << d.pegs[2] << std::endl;
+	out << "?+?+?" << std::endl;
+	out << d.pegs[3] << "|" << d.pegs[4] << "|" << d.pegs[5] << std::endl;
+	out << "?+?+?" << std::endl;
+	out << d.pegs[6] << "|" << d.pegs[7] << "|" << d.pegs[8] << std::endl;
+	out << "Wins:     X: " << d.x_win << "   O: " << d.o_win << "   Ties: " << d.c_win << std::endl;
+	
+	return out;
+}
+
+TicTacToeBoard operator+(const TicTacToeBoard & b, const TicTacToeBoard & b2) {
+	TicTacToeBoard Board;
+	Board.x_win = b.x_win + b2.x_win;
+	Board.o_win = b.o_win + b2.o_win;
+	Board.c_win = b.c_win + b2.c_win;
+	return Board;
 }
