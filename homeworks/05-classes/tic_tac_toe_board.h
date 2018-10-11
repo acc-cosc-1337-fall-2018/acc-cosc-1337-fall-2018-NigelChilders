@@ -28,8 +28,8 @@ private:
 	bool check_board_full();
 	vector<string> pegs{ " ", " ", " ", " ", " ", " ", " ", " ", " "};
 	string next_player;
-	int x_win;
-	int o_win;
-	int c_win;
+	int x_win{ 0 };
+	int o_win{ 0 };
+	int c_win{ 0 };
 };
 #endif //TICTACTOE_H
