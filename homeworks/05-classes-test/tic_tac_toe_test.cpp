@@ -11,6 +11,7 @@ TEST_CASE("Test game over 3") {
 	board.mark_board(2);//O 
 	board.mark_board(4);//X 
 	board.mark_board(5);//O 
+	board.mark_board(6);//X 
 
 	REQUIRE(board.game_over() == false);
 

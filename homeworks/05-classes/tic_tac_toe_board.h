@@ -9,7 +9,7 @@ using std::vector;
 class tic_tac_toe_board {
 public:
 	tic_tac_toe_board() = default;
-	tic_tac_toe_board(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {};
+//	tic_tac_toe_board(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {};
 	bool game_over();
 	void start_game(std::string player);
 	void mark_board(int position);
@@ -29,9 +29,6 @@ protected:
 	void clear_board();
 	vector<Peg> pegs;
 	std::string next_player;
-	int x_win{ 0 };
-	int o_win{ 0 };
-	int c_win{ 0 };
 
 private:
 
