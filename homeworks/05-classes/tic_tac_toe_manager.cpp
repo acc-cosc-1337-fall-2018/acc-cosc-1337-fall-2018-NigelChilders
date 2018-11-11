@@ -1,18 +1,19 @@
 #include "tic_tac_toe_manager.h"
 
-
 std::unique_ptr<tic_tac_toe_board> tic_tac_toe_manager::get_game(game_type type) {
 	std::unique_ptr<tic_tac_toe_board> a;
 	if (type == tic_tac_toe_3){
 		a = std::make_unique<tic_tac_toe_3>();
-	}else {
+	}
+	if (type == tic_tac_toe_4){
 		a = std::make_unique<tic_tac_toe_4>();
 	}
 	return a;
 }
 
 void tic_tac_toe_manager::save_game(std::unique_ptr<tic_tac_toe_board> board) {
-	boards.push_back(board);
+	update_winner_count(board->get_winner());
+	boards.push_back(std::move);
 }
 
 void tic_tac_toe_manager::update_winner_count(std::string & count) {
@@ -24,6 +25,16 @@ void tic_tac_toe_manager::update_winner_count(std::string & count) {
 }
 
 std::ostream & operator<<(std::ostream & out, const tic_tac_toe_manager & d) {
-	d.display_board(out);
+	int counter = d.boards.size() + 1;
+	int option{ 0 };
+	out << "Select Board (Insert number from 1 -" << counter << ", or any key for full list): ";
+	std::cin >> option;
+	if (option <= counter) {
+		out << *d.boards[option-1];
+	} else {
+		for (int i = 0; i < d.boards.size(); ++i) {
+			out << *d.boards[i];
+		}
+	}
 	return out;
 }

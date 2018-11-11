@@ -7,8 +7,10 @@
 
 enum game_type {tic_tac_toe_3, tic_tac_toe_4};
 
-class tic_tac_toe_manager : public tic_tac_toe_board {
+class tic_tac_toe_manager {
 public:
+	tic_tac_toe_manager() = default;
+	tic_tac_toe_manager(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
 	std::unique_ptr<tic_tac_toe_board> get_game(game_type type);
 	void save_game(std::unique_ptr<tic_tac_toe_board> board);
 	friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe_manager& d);

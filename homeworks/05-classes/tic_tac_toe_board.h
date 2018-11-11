@@ -4,8 +4,6 @@
 #include <iostream>
 #include "peg.h"
 
-using std::vector;
-
 class tic_tac_toe_board {
 public:
 	tic_tac_toe_board() = default;
@@ -16,18 +14,19 @@ public:
 	std::string get_player();
 	friend std::istream& operator>>(std::istream& in, tic_tac_toe_board& d);
 	friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe_board& d);
+	std::string get_winner();
+	std::vector<Peg>& get_pegs();
 
 protected:
 	void set_next_player();
-	virtual bool check_column_win() const =0;
+	virtual bool check_column_win() const = 0;
 	virtual bool check_row_win() const = 0;
 	virtual bool check_diagonal_win() const = 0;
-	virtual void display_board(std::ostream& out) const =0;
+	virtual void display_board(std::ostream& out) const = 0;
 	virtual void get_input(std::istream& in) = 0;
-
 	bool check_board_full() const;
 	void clear_board();
-	vector<Peg> pegs;
+	std::vector<Peg> pegs;
 	std::string next_player;
 
 private:

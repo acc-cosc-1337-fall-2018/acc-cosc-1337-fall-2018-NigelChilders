@@ -6,6 +6,7 @@
 class tic_tac_toe_4 : public tic_tac_toe_board {
 public:
 	tic_tac_toe_4();
+
 protected:
 	bool check_column_win() const override;
 	bool check_diagonal_win() const override;
@@ -15,4 +16,4 @@ protected:
 
 private:
 };
-#endif //TICTACTOE_H
+#endif //!TIC_TAC_TOE_4_H

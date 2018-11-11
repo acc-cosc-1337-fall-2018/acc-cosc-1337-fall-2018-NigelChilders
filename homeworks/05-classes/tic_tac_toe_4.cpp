@@ -69,11 +69,9 @@ bool tic_tac_toe_4::check_diagonal_win() const {
 void tic_tac_toe_4::display_board(std::ostream & out) const {
 	out << "Current Player:  " << next_player << std::endl;
 
-	for (unsigned i = 0; i < pegs.size(); i += 3) {
-		out << pegs[i].val << "|" << pegs[i + 1].val << "|" << pegs[i + 2].val << std::endl;
+	for (unsigned i = 0; i < pegs.size(); i += 4) {
+		out << pegs[i].val << "|" << pegs[i + 1].val << "|" << pegs[i + 2].val << pegs[i + 3].val << std::endl;
 	}
-
-	out << "Wins:     X: " << x_win << "   O: " << o_win << "   Ties: " << c_win << std::endl;
 }
 
 void tic_tac_toe_4::get_input(std::istream & in) {
