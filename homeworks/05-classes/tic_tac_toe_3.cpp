@@ -57,8 +57,6 @@ void tic_tac_toe_3::display_board(std::ostream & out) const {
 	for (unsigned i = 0; i < pegs.size(); i += 3) {
 		out << pegs[i].val << "|" << pegs[i + 1].val << "|" << pegs[i + 2].val << std::endl;
 	}
-
-	out << "Wins:     X: " << x_win << "   O: " << o_win << "   Ties: " << c_win << std::endl;
 }
 
 void tic_tac_toe_3::get_input(std::istream & in) {

@@ -14,6 +14,7 @@ public:
 	void start_game(std::string player);
 	void mark_board(int position);
 	std::string get_player();
+	std::string get_winner();
 	friend std::istream& operator>>(std::istream& in, tic_tac_toe_board& d);
 	friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe_board& d);
 
@@ -29,7 +30,7 @@ protected:
 	void clear_board();
 	vector<Peg> pegs;
 	std::string next_player;
-
+	std::string winner;
 private:
 
 };

@@ -2,10 +2,10 @@
 
 bool tic_tac_toe_board::game_over() {
 	if (check_row_win() || check_column_win() || check_diagonal_win() || check_board_full()) {
-		if (!check_row_win() && !check_column_win() && !check_diagonal_win()) { c_win++; }
-		else if (next_player == "O") { x_win++; }
-		else if (next_player == "X") { o_win++; }
-		else {	c_win++; }
+		if (!check_row_win() && !check_column_win() && !check_diagonal_win()) { winner = "C"; }
+		else if (next_player == "O") { winner = "X"; }
+		else if (next_player == "X") { winner = "O"; }
+		else {	winner = "C"; }
 		return true;
 	}
 	else { return false; }
@@ -26,6 +26,11 @@ std::string tic_tac_toe_board::get_player() {
 	return next_player;
 }
 
+std::string tic_tac_toe_board::get_winner()
+{
+	return winner;
+}
+
 void tic_tac_toe_board::display_board(std::ostream& out) const {
 	out << "Current Player:  " << next_player << std::endl;
 	out << pegs[0].val << "|" << pegs[1].val << "|" << pegs[2].val << std::endl;
@@ -33,7 +38,6 @@ void tic_tac_toe_board::display_board(std::ostream& out) const {
 	out << pegs[3].val << "|" << pegs[4].val << "|" << pegs[5].val << std::endl;
 	out << "-+-+-" << std::endl;
 	out << pegs[6].val << "|" << pegs[7].val << "|" << pegs[8].val << std::endl;
-	out << "Wins:     X: " << x_win << "   O: " << o_win << "   Ties: " << c_win << std::endl;
 }
 
 void tic_tac_toe_board::get_input(std::istream & in) {
