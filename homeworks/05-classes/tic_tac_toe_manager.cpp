@@ -13,7 +13,7 @@ std::unique_ptr<tic_tac_toe_board> tic_tac_toe_manager::get_game(game_type type)
 
 void tic_tac_toe_manager::save_game(std::unique_ptr<tic_tac_toe_board> board) {
 	update_winner_count(board->get_winner());
-	boards.push_back(std::move);
+	boards.push_back(std::move(board));
 }
 
 void tic_tac_toe_manager::update_winner_count(std::string & count) {
@@ -25,11 +25,10 @@ void tic_tac_toe_manager::update_winner_count(std::string & count) {
 }
 
 std::ostream & operator<<(std::ostream & out, const tic_tac_toe_manager & d) {
-	int counter = d.boards.size() + 1;
 	int option{ 0 };
-	out << "Select Board (Insert number from 1 -" << counter << ", or any key for full list): ";
+	out << "Select Board (Insert number from 1 - " << d.boards.size() << ", or any key for full list): ";
 	std::cin >> option;
-	if (option <= counter) {
+	if (option <= d.boards.size()) {
 		out << *d.boards[option-1];
 	} else {
 		for (int i = 0; i < d.boards.size(); ++i) {

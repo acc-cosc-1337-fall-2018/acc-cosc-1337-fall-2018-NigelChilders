@@ -70,13 +70,13 @@ void tic_tac_toe_4::display_board(std::ostream & out) const {
 	out << "Current Player:  " << next_player << std::endl;
 
 	for (unsigned i = 0; i < pegs.size(); i += 4) {
-		out << pegs[i].val << "|" << pegs[i + 1].val << "|" << pegs[i + 2].val << pegs[i + 3].val << std::endl;
+		out << pegs[i].val << "|" << pegs[i + 1].val << "|" << pegs[i + 2].val  << "|" << pegs[i + 3].val << std::endl;
 	}
 }
 
 void tic_tac_toe_4::get_input(std::istream & in) {
 	int value{ 0 };
-	std::cout << "Player " << get_player() << ", choose position between 1 and 9: ";
+	std::cout << "Player " << get_player() << ", choose position between 1 and 16: ";
 	in >> value;
 	mark_board(value);
 }
