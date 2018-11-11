@@ -5,7 +5,7 @@
 #include "tic_tac_toe_4.h"
 #include <memory>
 
-enum game_type {tic_tac_toe_3, tic_tac_toe_4};
+enum game_type {Tic_Tac_Toe_3, Tic_Tac_Toe_4};
 
 class tic_tac_toe_manager {
 public:

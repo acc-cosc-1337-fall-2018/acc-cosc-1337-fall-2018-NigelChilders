@@ -17,9 +17,9 @@ int main() {
 		std::cin >> choice;
 		std::cout << std::endl;
 		if (choice == 1) {
-			game_selection = tic_tac_toe_3;
+			game_selection = Tic_Tac_Toe_3;
 		} else if (choice == 2) {
-			game_selection = tic_tac_toe_4;
+			game_selection = Tic_Tac_Toe_4;
 		} else { std::cout << "Invalid Selection" << std::endl; }
 		game = manager.get_game(game_selection);
 		std::cout << "Is first player X or O?:  ";

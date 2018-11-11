@@ -2,10 +2,10 @@
 
 std::unique_ptr<tic_tac_toe_board> tic_tac_toe_manager::get_game(game_type type) {
 	std::unique_ptr<tic_tac_toe_board> a;
-	if (type == tic_tac_toe_3){
+	if (type == Tic_Tac_Toe_3){
 		a = std::make_unique<tic_tac_toe_3>();
 	}
-	if (type == tic_tac_toe_4){
+	if (type == Tic_Tac_Toe_4){
 		a = std::make_unique<tic_tac_toe_4>();
 	}
 	return a;
