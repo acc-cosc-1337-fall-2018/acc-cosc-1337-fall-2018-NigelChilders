@@ -1,14 +1,15 @@
-#ifndef APP_H
+#ifndef  APP_H
 #define APP_H
 #include <wx/wx.h>
 
 class App : public wxApp {
 public:
 	virtual bool OnInit();
+
 protected:
 
 private:
 
 };
 
-#endif //!APP_H
+#endif // ! APP_h
