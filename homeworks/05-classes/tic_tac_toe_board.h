@@ -15,7 +15,7 @@ public:
 	friend std::istream& operator>>(std::istream& in, tic_tac_toe_board& d);
 	friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe_board& d);
 	std::string get_winner();
-	std::vector<Peg>& get_pegs();
+	const std::vector<Peg>& get_pegs();
 
 protected:
 	void set_next_player();

@@ -14,6 +14,7 @@ public:
 	std::unique_ptr<tic_tac_toe_board> get_game(game_type type);
 	void save_game(std::unique_ptr<tic_tac_toe_board> board);
 	friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe_manager& d);
+	const std::vector<std::unique_ptr<tic_tac_toe_board>>& get_games();
 
 protected:
 

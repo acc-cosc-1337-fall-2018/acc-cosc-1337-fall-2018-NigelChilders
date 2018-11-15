@@ -85,7 +85,7 @@ std::string tic_tac_toe_board::get_winner() {
 }
 
 
-std::vector<Peg>& tic_tac_toe_board::get_pegs() {
+const std::vector<Peg>& tic_tac_toe_board::get_pegs() {
 	return pegs;
 }
 

@@ -16,6 +16,10 @@ void tic_tac_toe_manager::save_game(std::unique_ptr<tic_tac_toe_board> board) {
 	boards.push_back(std::move(board));
 }
 
+const std::vector<std::unique_ptr<tic_tac_toe_board>>& tic_tac_toe_manager::get_games() {
+	return boards;
+}
+
 void tic_tac_toe_manager::update_winner_count(std::string & count) {
 	if (count == "X") {
 		x_win++;
