@@ -18,6 +18,7 @@ void ClockGraphic::draw()
 	draw_hours_hand();
 	draw_minutes_hand();
 	draw_seconds_hand();
+	draw_clock_text();
 	clock.update_time();
 }
 
@@ -38,21 +39,33 @@ void ClockGraphic::draw_hand(double degrees, int length)
 
 void ClockGraphic::draw_hours_hand()
 {
-	double hours_angle = 6 / 12.0 * 360.0;
+	Clock clock;
+	double gmt = clock.get_hours();
+	double cst = gmt - 6.0;
+	if (cst < 0) { cst += 12.0; }
+	double tick = clock.get_minutes();
+	tick = tick / 5;
+	double hours_angle = cst / 12.0 * 360.0;
+	hours_angle += tick / 144.0 * 360.0;
 	device_context->SetPen(wxPen(wxColor(153, 0, 204), 3));
 	draw_hand(hours_angle, 45);
 }
 
 void ClockGraphic::draw_minutes_hand()
 {
-	double minutes_angle = 22 / 60.0 * 360.0;
+	Clock clock;
+	double tick = clock.get_seconds();
+	tick = tick / 5;
+	double minutes_angle = clock.get_minutes() / 60.0 * 360.0;
+	minutes_angle += tick / 720.0 * 360.0;
 	device_context->SetPen(wxPen(wxColor(0, 204, 153), 2));
 	draw_hand(minutes_angle, 90);
 }
 
 void ClockGraphic::draw_seconds_hand()
 {
-	double seconds_angle = 54 / 60.0 * 360.0;
+	Clock clock;
+	double seconds_angle = clock.get_seconds() / 60.0 * 360.0;
 	device_context->SetPen(wxPen(wxColor(204, 153, 0), 1));
 	draw_hand(seconds_angle, 105);
 
@@ -107,6 +120,15 @@ void ClockGraphic::draw_seconds_markers()
 		std::unique_ptr<Shape> line = std::make_unique<Line>(device_context, Point(x1, y1), Point(x2, y2));
 		line->draw();
 	}
+}
+
+void ClockGraphic::draw_clock_text()
+{
+	Clock clock;
+
+	std::unique_ptr<Shape> text = std::make_unique<Text>(device_context, clock.get_time(), Point(90, 175));
+	text->draw();
+
 }
 
 double ClockGraphic::get_angle(double degrees)

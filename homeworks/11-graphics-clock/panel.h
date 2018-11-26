@@ -1,9 +1,9 @@
 #ifndef PANEL_H
 #define PANEL_H
-#include<wx/wx.h>
-#include<vector>
-#include<string>
-#include<memory>
+#include <wx/wx.h>
+#include <vector>
+#include <string>
+#include <memory>
 #include <math.h>
 #include "text.h"
 #include "clock_graphic.h"

@@ -21,6 +21,7 @@ private:
 	void draw_seconds_hand();
 	void draw_hours_text();
 	void draw_seconds_markers();
+	void draw_clock_text();
 	double get_angle(double degrees);
 
 	wxDC* device_context;
