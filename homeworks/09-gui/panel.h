@@ -31,8 +31,8 @@ private:
 	wxTextCtrl* o_winner_label;
 	wxTextCtrl* c_winner_label;
 
-	std::unique_ptr<TicTacToeManager> manager;
-	std::unique_ptr<TicTacToeBoard> board;
+	std::unique_ptr<tic_tac_toe_manager> manager;
+	std::unique_ptr<tic_tac_toe_board> board;
 
 };
 
